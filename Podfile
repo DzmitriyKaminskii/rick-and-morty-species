@@ -24,6 +24,7 @@ target 'RickAndMortySpecies' do
 
   pod 'MaterialComponents', :subspecs => ['Snackbar']
   pod 'SnapKit'
+  pod 'Swinject'
 
   target 'RickAndMortySpeciesTests' do
     inherit! :search_paths

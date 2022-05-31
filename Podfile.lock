@@ -99,6 +99,7 @@ PODS:
     - RxSwift (= 6.5.0)
   - SnapKit (5.6.0)
   - SwiftLint (0.47.1)
+  - Swinject (2.8.1)
 
 DEPENDENCIES:
   - Action
@@ -112,6 +113,7 @@ DEPENDENCIES:
   - RxTest
   - SnapKit
   - SwiftLint
+  - Swinject
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -130,6 +132,7 @@ SPEC REPOS:
     - RxTest
     - SnapKit
     - SwiftLint
+    - Swinject
 
 SPEC CHECKSUMS:
   Action: 47f1825511907b4fcd79dd7a7db9526c20f78018
@@ -147,7 +150,8 @@ SPEC CHECKSUMS:
   RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
+  Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
 
-PODFILE CHECKSUM: 7e0eacc2a143d951fca64407ac48f222ada1f22d
+PODFILE CHECKSUM: 642ac33857df14ec9f69a370d43a0ecde1ac29ac
 
 COCOAPODS: 1.11.3

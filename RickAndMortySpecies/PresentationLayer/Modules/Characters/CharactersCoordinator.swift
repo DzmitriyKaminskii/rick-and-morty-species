@@ -28,7 +28,12 @@ class CharactersCoordinator: BaseCoordinator<Void> {
   }
 
   private func showCharacterListScreen() {
-    let viewController = userInterfaceFactory.createCharacterListUI(coordinatorInput: self)
+    guard let viewController = ApplicationAssembly
+      .resolver
+      .resolve(CharacterListTableViewController.self, coordinator: self)
+    else {
+      fatalError("Expected dependency \(CharacterListTableViewController.self)")
+    }
 
     rootViewController?.setViewControllers([viewController], animated: false)
   }

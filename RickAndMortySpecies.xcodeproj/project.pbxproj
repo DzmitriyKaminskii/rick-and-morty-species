@@ -90,6 +90,10 @@
 		41AFC69B2846137200E7E1A3 /* CharactersCoordinatorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFC6362846137100E7E1A3 /* CharactersCoordinatorInput.swift */; };
 		41AFC69C2846137200E7E1A3 /* CharacterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFC6372846137100E7E1A3 /* CharacterListTableViewController.swift */; };
 		41AFC69D2846137200E7E1A3 /* CharacterListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFC6382846137100E7E1A3 /* CharacterListTableViewModel.swift */; };
+		41CF670328463F78005ADFBF /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF670228463F78005ADFBF /* ApplicationAssembly.swift */; };
+		41CF6706284648B9005ADFBF /* RepositoriesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF6705284648B9005ADFBF /* RepositoriesAssembly.swift */; };
+		41CF670828464910005ADFBF /* CharacterListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF670728464910005ADFBF /* CharacterListAssembly.swift */; };
+		41CF670A28464963005ADFBF /* Container+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF670928464963005ADFBF /* Container+Register.swift */; };
 		E2C94D1DC08BA786891DCE51 /* Pods_RickAndMortySpecies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747343CE161E776D32B41205 /* Pods_RickAndMortySpecies.framework */; };
 /* End PBXBuildFile section */
 
@@ -191,6 +195,10 @@
 		41AFC6592846137200E7E1A3 /* CharacterCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCellTest.swift; sourceTree = "<group>"; };
 		41AFC6B128461B3400E7E1A3 /* RickAndMortySpeciesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortySpeciesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41AFC6BB28461BC600E7E1A3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41CF670228463F78005ADFBF /* ApplicationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
+		41CF6705284648B9005ADFBF /* RepositoriesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesAssembly.swift; sourceTree = "<group>"; };
+		41CF670728464910005ADFBF /* CharacterListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListAssembly.swift; sourceTree = "<group>"; };
+		41CF670928464963005ADFBF /* Container+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Register.swift"; sourceTree = "<group>"; };
 		49385F26722618107DE3FF9F /* Pods_RickAndMortySpeciesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RickAndMortySpeciesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E71FB19276129D600A62236 /* RickAndMortySpecies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortySpecies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		729E2D474BDFDD6023018532 /* Pods-RickAndMortySpeciesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortySpeciesTests.debug.xcconfig"; path = "Target Support Files/Pods-RickAndMortySpeciesTests/Pods-RickAndMortySpeciesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -230,10 +238,10 @@
 		41AFC5CD2846137100E7E1A3 /* RickAndMortySpecies */ = {
 			isa = PBXGroup;
 			children = (
-				41AFC5CE2846137100E7E1A3 /* Resources */,
-				41AFC5D52846137100E7E1A3 /* BusinessLogicLayer */,
 				41AFC5F72846137100E7E1A3 /* ApplicationLayer */,
+				41AFC5D52846137100E7E1A3 /* BusinessLogicLayer */,
 				41AFC5FD2846137100E7E1A3 /* PresentationLayer */,
+				41AFC5CE2846137100E7E1A3 /* Resources */,
 			);
 			path = RickAndMortySpecies;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 		41AFC5D52846137100E7E1A3 /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				41CF6704284648A9005ADFBF /* Assembly */,
 				41AFC5D62846137100E7E1A3 /* Moya */,
 				41AFC5DA2846137100E7E1A3 /* Settings */,
 				41AFC5DC2846137100E7E1A3 /* Repositories */,
@@ -376,6 +385,7 @@
 		41AFC5F72846137100E7E1A3 /* ApplicationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				41CF670128463F47005ADFBF /* Assembly */,
 				41AFC5F82846137100E7E1A3 /* Delegate */,
 				41AFC5FB2846137100E7E1A3 /* Extentions */,
 			);
@@ -563,11 +573,12 @@
 		41AFC6302846137100E7E1A3 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
-				41AFC6312846137100E7E1A3 /* CharactersCoordinator.swift */,
 				41AFC6322846137100E7E1A3 /* CharacterCell */,
+				41AFC6312846137100E7E1A3 /* CharactersCoordinator.swift */,
 				41AFC6362846137100E7E1A3 /* CharactersCoordinatorInput.swift */,
 				41AFC6372846137100E7E1A3 /* CharacterListTableViewController.swift */,
 				41AFC6382846137100E7E1A3 /* CharacterListTableViewModel.swift */,
+				41CF670728464910005ADFBF /* CharacterListAssembly.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -738,6 +749,23 @@
 				41AFC64F2846137200E7E1A3 /* PresentationLayer */,
 			);
 			path = RickAndMortySpeciesTests;
+			sourceTree = "<group>";
+		};
+		41CF670128463F47005ADFBF /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				41CF670228463F78005ADFBF /* ApplicationAssembly.swift */,
+				41CF670928464963005ADFBF /* Container+Register.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		41CF6704284648A9005ADFBF /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				41CF6705284648B9005ADFBF /* RepositoriesAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		6E71FB10276129D600A62236 = {
@@ -1006,6 +1034,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41AFC67B2846137200E7E1A3 /* Navigatable.swift in Sources */,
+				41CF6706284648B9005ADFBF /* RepositoriesAssembly.swift in Sources */,
 				41AFC6822846137200E7E1A3 /* ErrorShowing.swift in Sources */,
 				41AFC68D2846137200E7E1A3 /* CharacterDetailsCoordinatorInput.swift in Sources */,
 				41AFC67A2846137200E7E1A3 /* CoordinatorInput.swift in Sources */,
@@ -1058,7 +1087,10 @@
 				41AFC6642846137200E7E1A3 /* LocationRepositoryProtocol.swift in Sources */,
 				41AFC6902846137200E7E1A3 /* CharacterLocationView.swift in Sources */,
 				41AFC6612846137200E7E1A3 /* BuildConfiguration.swift in Sources */,
+				41CF670A28464963005ADFBF /* Container+Register.swift in Sources */,
+				41CF670828464910005ADFBF /* CharacterListAssembly.swift in Sources */,
 				41AFC66A2846137200E7E1A3 /* Location.swift in Sources */,
+				41CF670328463F78005ADFBF /* ApplicationAssembly.swift in Sources */,
 				41AFC6952846137200E7E1A3 /* StatusView.swift in Sources */,
 				41AFC68B2846137200E7E1A3 /* BindableTableViewController.swift in Sources */,
 				41AFC6832846137200E7E1A3 /* LoadingView+Rx.swift in Sources */,
