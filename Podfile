@@ -24,6 +24,7 @@ target 'RickAndMortySpecies' do
 
   pod 'MaterialComponents', :subspecs => ['Snackbar']
   pod 'SnapKit'
+  pod 'SwiftGen'
   pod 'Swinject'
 
   target 'RickAndMortySpeciesTests' do
