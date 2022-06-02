@@ -12,7 +12,7 @@ extension Resolver {
   func resolve<Service, Coordinator: CoordinatorInput, CoordinatorParameter>(
     _ serviceType: Service.Type,
     coordinator: Coordinator,
-    coordinatorParameter: CoordinatorParameter? = nil)
+    coordinatorParameter: CoordinatorParameter)
   -> Service? {
     resolve(serviceType, arguments: coordinator, coordinatorParameter)
   }

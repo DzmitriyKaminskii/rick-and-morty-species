@@ -12,8 +12,8 @@ class CharacterListAssembly: Assembly {
   func assemble(container: Container) {
     container.register(
       CharacterListTableViewController.self,
-      storyboardName: "Main",
-      storyboardId: "CharacterList") { (resolver, vc, coordinator: CharactersCoordinator) in
+      viewController: StoryboardScene.Main.characterList
+    ) { (resolver, vc, coordinator: CharactersCoordinator) in
       let viewModel = resolver.resolve(CharacterListTableViewModel.self)
       viewModel?.updateCoordinator(coordinator)
       vc.updateViewModel(viewModel)

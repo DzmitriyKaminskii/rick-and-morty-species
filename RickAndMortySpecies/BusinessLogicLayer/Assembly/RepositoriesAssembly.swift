@@ -10,9 +10,12 @@ import Swinject
 class RepositoriesAssembly: Assembly {
 
   func assemble(container: Container) {
-      container.register(CharacterRepositoryProtocol.self) { _ in
-           CharacterRepository()
-      }
+    container.register(CharacterRepositoryProtocol.self) { _ in
+      CharacterRepository()
+    }
+    container.register(LocationRepositoryProtocol.self) { _ in
+      LocationRepository()
+    }
   }
 
 }

@@ -15,7 +15,8 @@ enum ApplicationAssembly {
 
   private static var assembler: Assembler = Assembler([
     RepositoriesAssembly(),
-    CharacterListAssembly()
+    CharacterListAssembly(),
+    CharacterDetailsAssembly()
   ])
 
 }

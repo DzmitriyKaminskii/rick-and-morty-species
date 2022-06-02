@@ -11,13 +11,11 @@ import RxSwift
 class CharacterDetailsCoordinator: BaseCoordinator<Void> {
 
   private let character: Character
-  private let userInterfaceFactory: CharacterUIFactory
   private weak var rootViewController: UINavigationController?
 
-  init(rootViewController: UINavigationController?, interfaceFactory: CharacterUIFactory, character: Character) {
+  init(rootViewController: UINavigationController?, character: Character) {
     self.rootViewController = rootViewController
     self.character = character
-    userInterfaceFactory = interfaceFactory
 
     super.init()
   }
@@ -33,7 +31,12 @@ class CharacterDetailsCoordinator: BaseCoordinator<Void> {
   }
 
   private func showCharacterDetailsScreen() {
-    let viewController = userInterfaceFactory.createCharacterDetailsUI(coordinatorInput: self, character: character)
+    guard let viewController = ApplicationAssembly
+      .resolver
+      .resolve(CharacterDetailsViewController.self, coordinator: self, coordinatorParameter: character)
+    else {
+      fatalError("Expected dependency \(CharacterDetailsViewController.self)")
+    }
 
     rootViewController?.pushViewController(viewController, animated: true)
   }

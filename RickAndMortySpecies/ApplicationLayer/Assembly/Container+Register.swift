@@ -12,38 +12,28 @@ extension Container {
   @discardableResult
   func register<Service: UIViewController, Coordinator: CoordinatorInput, CoordinatorParameter>(
     _ serviceType: Service.Type,
-    storyboardName: String,
-    storyboardId: String,
-    update: @escaping (Resolver, Service, Coordinator, CoordinatorParameter?) -> Void
+    viewController: SceneType<Service>,
+    update: @escaping (Resolver, Service, Coordinator, CoordinatorParameter) -> Void
   ) -> ServiceEntry<Service> {
 
-    register(serviceType) { (resolver, coordinator: Coordinator, coordinatorParameter: CoordinatorParameter?) in
-      let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-      guard let viewController = storyboard.instantiateViewController(withIdentifier: storyboardId)
-              as? Service else {
-        fatalError("Expected class \(Service.self).")
-      }
-      update(resolver, viewController, coordinator, coordinatorParameter)
-      return viewController
+    register(serviceType) { (resolver, coordinator: Coordinator, coordinatorParameter: CoordinatorParameter) in
+      let viewInstance = viewController.instantiate()
+      update(resolver, viewInstance, coordinator, coordinatorParameter)
+      return viewInstance
     }
   }
 
   @discardableResult
   func register<Service: UIViewController, Coordinator: CoordinatorInput>(
     _ serviceType: Service.Type,
-    storyboardName: String,
-    storyboardId: String,
+    viewController: SceneType<Service>,
     update: @escaping (Resolver, Service, Coordinator) -> Void
-  ) -> ServiceEntry<Service> {
+) -> ServiceEntry<Service> {
 
     register(serviceType) { (resolver, coordinator: Coordinator) in
-      let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-      guard let viewController = storyboard.instantiateViewController(withIdentifier: storyboardId)
-              as? Service else {
-        fatalError("Expected class \(Service.self).")
-      }
-      update(resolver, viewController, coordinator)
-      return viewController
+      let viewInstance = viewController.instantiate()
+      update(resolver, viewInstance, coordinator)
+      return viewInstance
     }
   }
 
