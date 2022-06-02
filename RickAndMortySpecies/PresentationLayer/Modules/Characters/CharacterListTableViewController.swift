@@ -54,7 +54,7 @@ class CharacterListTableViewController: BindableTableViewController<CharacterLis
   }
 
   override func style() {
-    self.navigationItem.title = NSLocalizedString("character_list_title", comment: "")
+    self.navigationItem.title = Strings.characterListTitle
   }
 
 }

@@ -21,7 +21,7 @@ class CharacterDetailsViewController: BindableViewController<CharacterDetailsVie
   @IBOutlet private var locationView: CharacterLocationView!
 
   override func viewDidLoad() {
-    let backButton = UIBarButtonItem(title: NSLocalizedString("close_button", comment: ""),
+    let backButton = UIBarButtonItem(title: Strings.closeButton,
                                      style: .plain,
                                      target: nil,
                                      action: nil)
@@ -61,9 +61,9 @@ class CharacterDetailsViewController: BindableViewController<CharacterDetailsVie
   }
 
   override func style() {
-    speciesTitleLabel.text = NSLocalizedString("species_title", comment: "")
-    genderTitleLabel.text = NSLocalizedString("gender_title", comment: "")
-    locationTitleLabel.text = NSLocalizedString("location_title", comment: "")
+    speciesTitleLabel.text = Strings.speciesTitle
+    genderTitleLabel.text = Strings.genderTitle
+    locationTitleLabel.text = Strings.locationTitle
   }
 
 }

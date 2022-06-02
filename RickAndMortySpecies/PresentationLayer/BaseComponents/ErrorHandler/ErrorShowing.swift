@@ -14,8 +14,8 @@ public extension ErrorShowing {
   func showError(message: String) {
     let message = MDCSnackbarMessage(text: message)
     let manager = MDCSnackbarManager()
-    manager.snackbarMessageViewBackgroundColor = UIColor(named: "loader_background")
-    manager.snackbarMessageViewShadowColor = UIColor(named: "shadow")
+    manager.snackbarMessageViewBackgroundColor = Colors.loaderBackground.color
+    manager.snackbarMessageViewShadowColor = Colors.shadow.color
     manager.messageTextColor = .white
     manager.show(message)
   }

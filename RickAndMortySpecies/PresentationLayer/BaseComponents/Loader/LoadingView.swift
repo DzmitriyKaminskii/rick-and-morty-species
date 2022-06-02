@@ -210,7 +210,7 @@ class IndicatorSubviewFactory {
 
     guard let indicatorView = createdIndicator else { return UIView() }
 
-    indicatorView.backgroundColor = UIColor(named: "loader_background")
+    indicatorView.backgroundColor = Colors.loaderBackground.color
     indicatorView.layer.cornerRadius = Constants.activityIndicatorCornerRadius
 
     indicatorView.snp.makeConstraints({
@@ -231,7 +231,7 @@ class IndicatorSubviewFactory {
 
   private func createReloadingIndicator() -> UIView? {
     let reloadView = UIButton()
-    reloadView.setImage(UIImage(named: "ic_reload"), for: .normal)
+    reloadView.setImage(Images.icReload.image, for: .normal)
     reloadView.tintColor = .white
     return reloadView
   }

@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  RickAndMortySpecies
+
+  Created by Dzmitry Kaminski on 6/1/22.
+  
+*/
+
+"character_list_title" = "Персонажы";
+"close_button" = "Закрыть";
+
+"species_title" = "Виды:";
+"gender_title" = "Пол:";
+"location_title" = "Локация:";
+
+"status_alive" = "Жив";
+"status_dead" = "Мертв";
+"unknow_status" = "Неизветсно";
+
+"gender_female" = "Женский";
+"gender_male" = "Мужской";
+"gender_genderless" = "Безполый";
+"unknown_gender" = "Неизветсно";
+
+"location_type" = "Тип:";
+"location_dimension" = "Изменения:";
+
+"date_from_title" = "From:";
+"date_to_title" = "To:";
+"apply_button_title" = "Apply";

@@ -49,8 +49,8 @@ class CharacterLocationView: XibLoadableView, ErrorShowing {
   }
 
   override func style() {
-    typeTitleLabel.text = NSLocalizedString("location_type", comment: "")
-    dimensionTitleLabel.text = NSLocalizedString("location_dimension", comment: "")
+    typeTitleLabel.text = Strings.locationType
+    dimensionTitleLabel.text = Strings.locationDimension
   }
 
 }

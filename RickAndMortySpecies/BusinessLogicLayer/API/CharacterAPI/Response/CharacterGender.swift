@@ -21,13 +21,13 @@ extension CharacterGender {
   var value: String {
     switch self {
     case .female:
-      return NSLocalizedString("gender_female", comment: "")
+      return Strings.genderFemale
     case .male:
-      return NSLocalizedString("gender_male", comment: "")
+      return Strings.genderMale
     case .genderless:
-      return NSLocalizedString("gender_genderless", comment: "")
+      return Strings.genderGenderless
     case .unknown:
-      return NSLocalizedString("unknown_gender", comment: "")
+      return Strings.unknownGender
     }
   }
 

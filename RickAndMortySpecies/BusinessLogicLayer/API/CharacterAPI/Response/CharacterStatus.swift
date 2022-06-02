@@ -20,11 +20,11 @@ extension CharacterStatus {
   var value: String {
     switch self {
     case .alive:
-      return NSLocalizedString("status_alive", comment: "")
+      return Strings.statusAlive
     case .dead:
-      return NSLocalizedString("status_dead", comment: "")
+      return Strings.statusDead
     case .unknown:
-      return NSLocalizedString("unknow_status", comment: "")
+      return Strings.unknowStatus
     }
   }
 

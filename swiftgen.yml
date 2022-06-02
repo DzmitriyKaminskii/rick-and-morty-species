@@ -1,0 +1,36 @@
+ib:
+  inputs: RickAndMortySpecies/PresentationLayer/Storyboards
+  outputs:
+    - templateName: scenes-swift5
+      output: RickAndMortySpecies/Resources/Generated/Storyboard.swift
+      params:
+        enumName: StoryboardScene
+        ignoreTargetModule: true
+xcassets:
+  - inputs: RickAndMortySpecies/Resources/Colors.xcassets
+    outputs:
+      - templateName: swift5
+        output: RickAndMortySpecies/Resources/Generated/Colors.swift
+        params:
+          enumName: Colors
+          publicAccess: true
+          ignoreTargetModule: true
+
+  - inputs: RickAndMortySpecies/Resources/Images.xcassets
+    outputs:
+      - templateName: swift5
+        output: RickAndMortySpecies/Resources/Generated/Images.swift
+        params:
+          enumName: Images
+          publicAccess: true
+          ignoreTargetModule: true
+
+strings:
+  inputs: RickAndMortySpecies/Resources/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: RickAndMortySpecies/Resources/Generated/Strings.swift
+      params:
+        enumName: Strings
+        publicAccess: true
+        ignoreTargetModule: true
