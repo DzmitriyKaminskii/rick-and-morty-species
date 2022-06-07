@@ -21,6 +21,11 @@ class CharacterRepository: CharacterRepositoryProtocol {
     self.provider = provider
   }
 
+  func loadCharacter(id: Int) -> Single<Character> {
+    let requestEndpoint = CharacterAPI.character(characterId: id)
+    return provider.request(requestEndpoint, responseType: Character.self)
+  }
+
   func loadCharacterList(pagination: PaginationParams) -> Single<CharacterListResponse> {
     let requestEndpoint = CharacterAPI.characterList(pagination: pagination)
     return provider.request(requestEndpoint, responseType: CharacterListResponse.self)

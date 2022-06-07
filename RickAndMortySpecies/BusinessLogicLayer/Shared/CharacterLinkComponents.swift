@@ -7,12 +7,10 @@
 
 import Foundation
 
-class CharacterLinkComponents {
+enum CharacterLinkComponents {
 
-  let locationId: Int?
-
-  init(urlString: String) {
-    locationId = Int(urlString.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
+  static func getLocationId(by urlString: String) -> Int? {
+    Int(urlString.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
   }
 
 }

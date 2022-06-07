@@ -533,9 +533,9 @@
 		41AFC61F2846137100E7E1A3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				41AFC6222846137100E7E1A3 /* CharacterDetails */,
 				41AFC62E2846137100E7E1A3 /* Root */,
 				41AFC6302846137100E7E1A3 /* Characters */,
+				41AFC6222846137100E7E1A3 /* CharacterDetails */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -576,6 +576,7 @@
 		41AFC62E2846137100E7E1A3 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				41FB496D284DF66A00E2E6D9 /* DeepLinks */,
 				41AFC62F2846137100E7E1A3 /* RootCoordinator.swift */,
 			);
 			path = Root;
@@ -778,6 +779,13 @@
 				41CF6705284648B9005ADFBF /* RepositoriesAssembly.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		41FB496D284DF66A00E2E6D9 /* DeepLinks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DeepLinks;
 			sourceTree = "<group>";
 		};
 		6E71FB10276129D600A62236 = {

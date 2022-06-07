@@ -10,6 +10,7 @@ import Moya
 enum CharacterAPI {
 
   case characterList(pagination: PaginationParams)
+  case character(characterId: Int)
 
 }
 
@@ -19,6 +20,8 @@ extension CharacterAPI: TargetType {
     switch self {
     case .characterList:
       return "/character"
+    case .character(let id):
+      return "/character/\(id)"
     }
   }
 
@@ -31,6 +34,8 @@ extension CharacterAPI: TargetType {
     case .characterList(let pagination):
       return .requestParameters(parameters: pagination.asDictionary(),
                                 encoding: URLEncoding(arrayEncoding: .noBrackets))
+    case .character:
+      return .requestPlain
     }
   }
 

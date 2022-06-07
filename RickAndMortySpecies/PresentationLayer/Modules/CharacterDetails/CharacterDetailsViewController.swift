@@ -7,8 +7,9 @@
 
 import RxCocoa
 import RxSwift
+import RxSwiftExt
 
-class CharacterDetailsViewController: BindableViewController<CharacterDetailsViewModel> {
+class CharacterDetailsViewController: BindableViewController<CharacterDetailsViewModel>, ErrorShowing {
 
   @IBOutlet private var photoImageView: UIImageView!
   @IBOutlet private var nameLabel: UILabel!
@@ -40,23 +41,33 @@ class CharacterDetailsViewController: BindableViewController<CharacterDetailsVie
       .disposed(by: disposeBag)
 
     viewModel.output.photo
-      .drive(photoImageView.rx.alamofireImage)
+      .unwrap()
+      .emit(to: photoImageView.rx.alamofireImage)
       .disposed(by: disposeBag)
 
     viewModel.output.name
-      .drive(nameLabel.rx.text)
+      .emit(to: nameLabel.rx.text)
       .disposed(by: disposeBag)
 
     viewModel.output.species
-      .drive(speciesValueLabel.rx.text)
+      .emit(to: speciesValueLabel.rx.text)
       .disposed(by: disposeBag)
 
     viewModel.output.gender
-      .drive(genderValueLabel.rx.text)
+      .emit(to: genderValueLabel.rx.text)
       .disposed(by: disposeBag)
 
     viewModel.output.status
-      .drive(statusView.rx.status)
+      .emit(to: statusView.rx.status)
+      .disposed(by: disposeBag)
+
+    viewModel.output.isLoaderShown
+      .drive(LoadingView.rx.isActivityIndicatorShown(inViewController: self))
+      .disposed(by: disposeBag)
+
+    viewModel.errors
+      .observeOnMain()
+      .subscribe(onNext: { [weak self] message in self?.showError(message: message) })
       .disposed(by: disposeBag)
   }
 

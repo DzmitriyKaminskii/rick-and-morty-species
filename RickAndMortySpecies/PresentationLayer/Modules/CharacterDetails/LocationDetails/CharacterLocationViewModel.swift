@@ -21,7 +21,7 @@ class CharacterLocationViewModel: BindableViewModel {
   let output: Output
 
   private let locationRepository: LocationRepositoryProtocol
-  private let locationId: Int?
+  private let locationId: Signal<Int?>
   private var locationRelay = BehaviorRelay<Location?>(value: nil)
   private let isLoaderShownRelay = BehaviorRelay<Bool>(value: false)
 
@@ -31,7 +31,7 @@ class CharacterLocationViewModel: BindableViewModel {
       .asObservable()
   }
 
-  init(locationId: Int?, locationRepository: LocationRepositoryProtocol) {
+  init(locationId: Signal<Int?>, locationRepository: LocationRepositoryProtocol) {
     self.locationRepository = locationRepository
     self.locationId = locationId
 
@@ -60,9 +60,10 @@ class CharacterLocationViewModel: BindableViewModel {
       .bind(to: errorsRelay)
       .disposed(by: disposeBag)
 
-    if let id = locationId {
-      loadLocationAction.execute(id)
-    }
+    locationId
+      .unwrap()
+      .emit(to: loadLocationAction.inputs)
+      .disposed(by: disposeBag)
   }
 
 }
