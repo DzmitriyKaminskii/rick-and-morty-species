@@ -18,11 +18,11 @@ class CharacterDetailsViewModel: BindableViewModel {
   }
 
   struct Output {
-    let photo: Signal<AlamofireImage?>
-    let name: Signal<String>
-    let species: Signal<String>
-    let gender: Signal<String>
-    let status: Signal<CharacterStatus>
+    let photo: Driver<AlamofireImage?>
+    let name: Driver<String?>
+    let species: Driver<String?>
+    let gender: Driver<String?>
+    let status: Driver<CharacterStatus?>
     let isLoaderShown: Driver<Bool>
   }
 
@@ -35,6 +35,9 @@ class CharacterDetailsViewModel: BindableViewModel {
   private let characterRelay = BehaviorRelay<Character?>(value: nil)
   private let isLoaderShownRelay = BehaviorRelay<Bool>(value: false)
 
+  private let characterInitRelay: BehaviorRelay<Character>?
+  private let characterIdRelay: BehaviorRelay<Int>?
+
   private let locationRepository: LocationRepositoryProtocol
   private let characterRepository: CharacterRepositoryProtocol?
 
@@ -44,45 +47,45 @@ class CharacterDetailsViewModel: BindableViewModel {
   }
 
   convenience init(character: Character, locationRepository: LocationRepositoryProtocol) {
-    self.init(locationRepository: locationRepository)
-    self.characterRelay.accept(character)
+    self.init(locationRepository: locationRepository, characterInitRelay: BehaviorRelay(value: character))
   }
 
   convenience init(characterId: Int,
                    locationRepository: LocationRepositoryProtocol,
                    characterRepository: CharacterRepositoryProtocol) {
-    self.init(locationRepository: locationRepository, characterRepository: characterRepository)
-
-    self.loadCharacterAction.execute(characterId)
+    self.init(locationRepository: locationRepository,
+              characterRepository: characterRepository,
+              characterIdRelay: BehaviorRelay(value: characterId))
   }
 
-  init(locationRepository: LocationRepositoryProtocol, characterRepository: CharacterRepositoryProtocol? = nil) {
+  private init(locationRepository: LocationRepositoryProtocol,
+               characterRepository: CharacterRepositoryProtocol? = nil,
+               characterInitRelay: BehaviorRelay<Character>? = nil,
+               characterIdRelay: BehaviorRelay<Int>? = nil) {
     self.characterRepository = characterRepository
     self.locationRepository = locationRepository
+    self.characterInitRelay = characterInitRelay
+    self.characterIdRelay = characterIdRelay
 
-    locationViewModel = CharacterLocationViewModel(
-      locationId: characterRelay.map { CharacterLinkComponents.getLocationId(by: $0?.location.url ?? "") }
-        .asSignal(onErrorRecover: { _ in .just(nil) }),
-      locationRepository: locationRepository)
+    let locationId = characterRelay.asDriver()
+      .map { CharacterLinkComponents.getLocationId(by: $0?.location.url) }
+
+    locationViewModel = CharacterLocationViewModel(locationId: locationId, locationRepository: locationRepository)
 
     let photo = characterRelay
+      .asDriver()
       .map { character -> AlamofireImage? in
         let photoUrl = URL(string: character?.image ?? "")
         let placeholder = Image(named: "no_image", in: Bundle.main, compatibleWith: nil)
         return AlamofireImage(url: photoUrl, placeholderImage: placeholder)
       }
-      .asSignal { _ in .just(nil) }
 
     output = Output(
       photo: photo,
-      name: characterRelay.map { $0?.name ?? "" }
-        .asSignal(onErrorRecover: { _ in .just("") }),
-      species: characterRelay.map { $0?.species ?? "" }
-        .asSignal(onErrorRecover: { _ in .just("") }),
-      gender: characterRelay.map { $0?.gender.value ?? "" }
-        .asSignal(onErrorRecover: { _ in .just("") }),
-      status: characterRelay.map { $0?.status ?? CharacterStatus.unknown }
-        .asSignal(onErrorRecover: { _ in .just(CharacterStatus.unknown) }),
+      name: characterRelay.asDriver().map { $0?.name },
+      species: characterRelay.asDriver().map { $0?.species },
+      gender: characterRelay.asDriver().map { $0?.gender.value },
+      status: characterRelay.asDriver().map { $0?.status },
       isLoaderShown: isLoaderShownRelay.asDriver()
     )
   }
@@ -102,6 +105,14 @@ class CharacterDetailsViewModel: BindableViewModel {
 
     input.closeDidTap
       .bind(to: coordinator.close())
+      .disposed(by: disposeBag)
+
+    characterInitRelay?
+      .bind(to: characterRelay)
+      .disposed(by: disposeBag)
+
+    characterIdRelay?
+      .bind(to: loadCharacterAction.inputs)
       .disposed(by: disposeBag)
   }
 

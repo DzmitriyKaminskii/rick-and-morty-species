@@ -29,6 +29,10 @@ final class RootCoordinator: BaseCoordinator<Void> {
       .disposed(by: disposeBag)
   }
 
+  override func handleLink(_ linkData: LinkData) {
+    childCoordinators.forEach { $0.handleLink(linkData) }
+  }
+
   private func startCharacterCoordinator() -> Single<Void> {
     let characterCoordinator = CharactersCoordinator(rootViewController: rootViewController)
 

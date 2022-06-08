@@ -42,23 +42,23 @@ class CharacterDetailsViewController: BindableViewController<CharacterDetailsVie
 
     viewModel.output.photo
       .unwrap()
-      .emit(to: photoImageView.rx.alamofireImage)
+      .drive(photoImageView.rx.alamofireImage)
       .disposed(by: disposeBag)
 
     viewModel.output.name
-      .emit(to: nameLabel.rx.text)
+      .drive(nameLabel.rx.text)
       .disposed(by: disposeBag)
 
     viewModel.output.species
-      .emit(to: speciesValueLabel.rx.text)
+      .drive(speciesValueLabel.rx.text)
       .disposed(by: disposeBag)
 
     viewModel.output.gender
-      .emit(to: genderValueLabel.rx.text)
+      .drive(genderValueLabel.rx.text)
       .disposed(by: disposeBag)
 
     viewModel.output.status
-      .emit(to: statusView.rx.status)
+      .drive(statusView.rx.status)
       .disposed(by: disposeBag)
 
     viewModel.output.isLoaderShown

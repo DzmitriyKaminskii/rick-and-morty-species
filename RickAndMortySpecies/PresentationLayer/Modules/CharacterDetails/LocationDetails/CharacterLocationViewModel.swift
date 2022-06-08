@@ -21,23 +21,23 @@ class CharacterLocationViewModel: BindableViewModel {
   let output: Output
 
   private let locationRepository: LocationRepositoryProtocol
-  private let locationId: Signal<Int?>
+  private let locationId: Driver<Int?>
   private var locationRelay = BehaviorRelay<Location?>(value: nil)
   private let isLoaderShownRelay = BehaviorRelay<Bool>(value: false)
 
-  private lazy var loadLocationAction = Action<Int, Location> { [weak self] locationId in
-    guard let self = self else { return .empty() }
+  private lazy var loadLocationAction = Action<Int?, Location> { [weak self] locationId in
+    guard let self = self, let locationId = locationId else { return .empty() }
     return self.locationRepository.loadLocation(id: locationId)
       .asObservable()
   }
 
-  init(locationId: Signal<Int?>, locationRepository: LocationRepositoryProtocol) {
+  init(locationId: Driver<Int?>, locationRepository: LocationRepositoryProtocol) {
     self.locationRepository = locationRepository
     self.locationId = locationId
 
-    let name = locationRelay.map { $0?.name }.asDriver(onErrorJustReturn: nil)
-    let type = locationRelay.map { $0?.type }.asDriver(onErrorJustReturn: nil)
-    let dimension = locationRelay.map { $0?.dimension ?? "" }.asDriver(onErrorJustReturn: nil)
+    let name = locationRelay.asDriver().map { $0?.name }
+    let type = locationRelay.asDriver().map { $0?.type }
+    let dimension = locationRelay.asDriver().map { $0?.dimension }
 
     output = Output(
       name: name,
@@ -61,8 +61,7 @@ class CharacterLocationViewModel: BindableViewModel {
       .disposed(by: disposeBag)
 
     locationId
-      .unwrap()
-      .emit(to: loadLocationAction.inputs)
+      .drive(loadLocationAction.inputs)
       .disposed(by: disposeBag)
   }
 

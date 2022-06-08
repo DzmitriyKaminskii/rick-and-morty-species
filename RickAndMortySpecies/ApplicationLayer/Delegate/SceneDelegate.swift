@@ -2,6 +2,7 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+  private var deepLinkHandler: DeeplinkHandlerProtocol?
   private var rootCoordinator: RootCoordinator?
 
   func scene(_ scene: UIScene,
@@ -13,9 +14,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
       let rootCoordinator = RootCoordinator(window: window)
       self.rootCoordinator = rootCoordinator
-
+      self.deepLinkHandler = DeepLinkHandler(coordinator: rootCoordinator)
       rootCoordinator.start()
     }
+  }
+
+  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    deepLinkHandler?.handlerURLContext(URLContexts)
   }
 
 }

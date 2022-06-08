@@ -23,12 +23,14 @@ class BaseCoordinator<FinishType>: NSObject, Coordinator {
     disposeBag = DisposeBag()
   }
 
-  private func add(child newChildCoordinator: Coordinator) {
+  func handleLink(_ linkData: LinkData) {}
+
+  func add(child newChildCoordinator: Coordinator) {
     newChildCoordinator.parent = self
     childCoordinators.append(newChildCoordinator)
   }
 
-  private func remove(child childCoordinator: Coordinator) {
+  func remove(child childCoordinator: Coordinator) {
     childCoordinators = childCoordinators.filter { $0 !== childCoordinator }
     childCoordinator.parent = nil
   }

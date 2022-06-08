@@ -10,6 +10,12 @@ import RxSwift
 
 class CharactersCoordinator: BaseCoordinator<Void> {
 
+  private enum Constants {
+
+    static let deepLinkParamName = "id"
+
+  }
+
   private weak var rootViewController: UINavigationController?
 
   init(rootViewController: UINavigationController) {
@@ -22,6 +28,23 @@ class CharactersCoordinator: BaseCoordinator<Void> {
     super.start()
 
     showCharacterListScreen()
+  }
+
+  override func handleLink(_ linkData: LinkData) {
+    guard let characterParam = linkData.queryParams?[Constants.deepLinkParamName],
+          let characterId = Int(characterParam),
+    linkData.type == .characterDetails else { return }
+
+    let detailsCoordinator = CharacterDetailsCoordinator(rootViewController: rootViewController,
+                                                         characterId: characterId)
+
+    if let child = childCoordinators.last {
+      remove(child: child)
+    }
+
+    navigate(to: detailsCoordinator)
+      .subscribe()
+      .disposed(by: disposeBag)
   }
 
   private func showCharacterListScreen() {
