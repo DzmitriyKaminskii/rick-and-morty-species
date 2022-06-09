@@ -24,6 +24,7 @@ class BaseCoordinator<FinishType>: NSObject, Coordinator {
   }
 
   func handleLink(_ linkData: LinkData) {}
+  func canHandleLink(linkType: LinkType) -> Bool { false }
 
   func add(child newChildCoordinator: Coordinator) {
     newChildCoordinator.parent = self
