@@ -30,6 +30,10 @@ class CharactersCoordinator: BaseCoordinator<Void> {
     showCharacterListScreen()
   }
 
+  override func canHandleLink(linkType: LinkType) -> Bool {
+    linkType == .characterDetails
+  }
+
   override func handleLink(_ linkData: LinkData) {
     guard let characterParam = linkData.queryParams?[Constants.deepLinkParamName],
           let characterId = Int(characterParam),

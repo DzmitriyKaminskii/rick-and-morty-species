@@ -18,6 +18,16 @@ class DeepLinkHandler: DeeplinkHandlerProtocol {
   func handlerURLContext(_ context: Set<UIOpenURLContext>) {
     guard let url = context.first?.url, let host = url.host else { return }
 
+    handlerLink(url: url, host: host)
+  }
+
+  func handlerURLContext(_ context: UIOpenURLContext) {
+    guard let host = context.url.host else { return }
+
+    handlerLink(url: context.url, host: host)
+  }
+
+  private func handlerLink(url: URL, host: String) {
     let type = LinkType.allCases.first { $0.rawValue == host }
 
     if let linkType = type {

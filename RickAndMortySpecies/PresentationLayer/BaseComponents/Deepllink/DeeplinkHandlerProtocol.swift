@@ -10,5 +10,6 @@ import UIKit
 protocol DeeplinkHandlerProtocol {
 
   func handlerURLContext(_ context: Set<UIOpenURLContext>)
+  func handlerURLContext(_ context: UIOpenURLContext)
 
 }

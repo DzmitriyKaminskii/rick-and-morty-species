@@ -30,7 +30,9 @@ final class RootCoordinator: BaseCoordinator<Void> {
   }
 
   override func handleLink(_ linkData: LinkData) {
-    childCoordinators.forEach { $0.handleLink(linkData) }
+    if let coordinator = childCoordinators.first(where: { $0.canHandleLink(linkType: linkData.type) }) {
+      coordinator.handleLink(linkData)
+    }
   }
 
   private func startCharacterCoordinator() -> Single<Void> {

@@ -8,6 +8,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   func scene(_ scene: UIScene,
              willConnectTo session: UISceneSession,
              options connectionOptions: UIScene.ConnectionOptions) {
+
     if let windowScene = scene as? UIWindowScene {
 
       let window = UIWindow(windowScene: windowScene)
@@ -16,6 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       self.rootCoordinator = rootCoordinator
       self.deepLinkHandler = DeepLinkHandler(coordinator: rootCoordinator)
       rootCoordinator.start()
+
+    }
+
+    if let urlContext = connectionOptions.urlContexts.first {
+      deepLinkHandler?.handlerURLContext(urlContext)
     }
   }
 
