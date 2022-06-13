@@ -7,10 +7,11 @@
 
 #if os(iOS) || os(tvOS)
 
+import UIKit
+
 import AlamofireImage
 import RxSwift
 import RxCocoa
-import UIKit
 
 extension Reactive where Base: UIImageView {
 

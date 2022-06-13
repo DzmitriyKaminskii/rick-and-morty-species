@@ -5,6 +5,8 @@
 //  Created by Dzmitry Kaminski on 5/19/22.
 //
 
+import UIKit
+
 import RxSwift
 import RxRelay
 import Moya
@@ -43,6 +45,7 @@ class BindableViewModel: NSObject, Bindable {
   }
 
   func coordinator<T>() -> T {
+    print(T.self)
     guard let coordinator = _coordinator as? T else {
       fatalError("Did you forget to set \(T.self)?")
     }

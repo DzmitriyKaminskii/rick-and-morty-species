@@ -1,10 +1,4 @@
 PODS:
-  - Action (5.0.0):
-    - RxCocoa (~> 6.0)
-    - RxSwift (~> 6.0)
-  - Alamofire (5.6.1)
-  - AlamofireImage (4.2.0):
-    - Alamofire (~> 5.4)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/Buttons (124.2.0):
@@ -74,88 +68,29 @@ PODS:
     - MDFTextAccessibility
   - MDFInternationalization (3.0.0)
   - MDFTextAccessibility (2.0.1)
-  - Moya/Core (15.0.0):
-    - Alamofire (~> 5.0)
-  - Moya/RxSwift (15.0.0):
-    - Moya/Core
-    - RxSwift (~> 6.0)
-  - RxBlocking (6.5.0):
-    - RxSwift (= 6.5.0)
-  - RxCocoa (6.5.0):
-    - RxRelay (= 6.5.0)
-    - RxSwift (= 6.5.0)
-  - RxRelay (6.5.0):
-    - RxSwift (= 6.5.0)
-  - RxSwift (6.5.0)
-  - RxSwiftExt (6.0.1):
-    - RxSwiftExt/Core (= 6.0.1)
-    - RxSwiftExt/RxCocoa (= 6.0.1)
-  - RxSwiftExt/Core (6.0.1):
-    - RxSwift (~> 6.0)
-  - RxSwiftExt/RxCocoa (6.0.1):
-    - RxCocoa (~> 6.0)
-    - RxSwiftExt/Core
-  - RxTest (6.5.0):
-    - RxSwift (= 6.5.0)
-  - SnapKit (5.6.0)
   - SwiftGen (6.5.1)
   - SwiftLint (0.47.1)
-  - Swinject (2.8.1)
 
 DEPENDENCIES:
-  - Action
-  - AlamofireImage
   - MaterialComponents/Snackbar
-  - Moya/RxSwift
-  - RxBlocking
-  - RxCocoa
-  - RxSwift
-  - RxSwiftExt
-  - RxTest
-  - SnapKit
   - SwiftGen
   - SwiftLint
-  - Swinject
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Action
-    - Alamofire
-    - AlamofireImage
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
-    - Moya
-    - RxBlocking
-    - RxCocoa
-    - RxRelay
-    - RxSwift
-    - RxSwiftExt
-    - RxTest
-    - SnapKit
     - SwiftGen
     - SwiftLint
-    - Swinject
 
 SPEC CHECKSUMS:
-  Action: 47f1825511907b4fcd79dd7a7db9526c20f78018
-  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
-  AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
-  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
-  RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
-  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
-  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
-  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
-  RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
-  RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
-  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
-  Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
 
-PODFILE CHECKSUM: 4258802f58466c4e6f843567afa0187c5cd4e16b
+PODFILE CHECKSUM: 5ca76cadebfba57e00fe55ab92ea90de11c3bf53
 
 COCOAPODS: 1.11.3

@@ -13,7 +13,7 @@
         "name": "Testicle Monster Dimension",
         "url": "https://rickandmortyapi.com/api/location/21"
     },
-    "image": "",
+    "image": "https://rickandmortyapi.com/api/character/avatar/7.jpeg",
     "episode": [
         "https://rickandmortyapi.com/api/episode/10",
         "https://rickandmortyapi.com/api/episode/11"

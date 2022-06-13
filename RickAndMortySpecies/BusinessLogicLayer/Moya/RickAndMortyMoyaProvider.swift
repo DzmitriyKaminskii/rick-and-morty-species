@@ -5,7 +5,10 @@
 //  Created by Dzmitry Kaminski on 5/18/22.
 //
 
+import Foundation
+
 import Moya
+import RxMoya
 import RxSwift
 
 class RickAndMortyMoyaProvider<Target> where Target: TargetType {

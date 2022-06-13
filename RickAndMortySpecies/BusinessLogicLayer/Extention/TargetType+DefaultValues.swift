@@ -5,6 +5,8 @@
 //  Created by Dzmitry Kaminski on 5/18/22.
 //
 
+import Foundation
+
 import Moya
 
 extension TargetType {

@@ -14,19 +14,19 @@ class CharacterStatusTest: XCTestCase {
   func testAliveStatusValue() {
     let status = CharacterStatus.alive
 
-    XCTAssert(status.value == "Alive")
+    XCTAssert(status.value == Strings.statusAlive)
   }
 
   func testDeadStatusValue() {
     let status = CharacterStatus.dead
 
-    XCTAssert(status.value == "Dead")
+    XCTAssert(status.value == Strings.statusDead)
   }
 
   func testUnknownStatusValue() {
     let status = CharacterStatus.unknown
 
-    XCTAssert(status.value == "Unknown")
+    XCTAssert(status.value == Strings.unknowStatus)
   }
 
   func testAliveStatusColor() {

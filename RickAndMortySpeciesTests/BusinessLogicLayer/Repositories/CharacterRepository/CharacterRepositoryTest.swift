@@ -18,8 +18,10 @@ class CharacterRepositoryTest: XCTestCase {
 
   private enum Constants {
 
-    static let successfulResponse = "characterListResponse"
+    static let successfulListResponse = "characterListResponse"
+    static let successfulSingleResponse = "character"
     static let failResponse = "error"
+    static let characterId = 7
 
   }
 
@@ -33,7 +35,7 @@ class CharacterRepositoryTest: XCTestCase {
 
   func testSuccessfulListCharacter() {
     repositoryTester.testSuccessfulResponse(ofType: CharacterListResponse.self,
-                                            fromRepository: getRepository(jsonName: Constants.successfulResponse),
+                                            fromRepository: getRepository(jsonName: Constants.successfulListResponse),
                                             expectedResponse: TestHelperUtils.getListCharacter()) { repository in
       repository.loadCharacterList(pagination: PaginationParams(page: nil))
         .asObservable()
@@ -52,10 +54,29 @@ class CharacterRepositoryTest: XCTestCase {
     }
   }
 
+  func testSuccessfulCharacter() {
+    repositoryTester.testSuccessfulResponse(ofType: Character.self,
+                                            fromRepository: getRepository(jsonName: Constants.successfulSingleResponse),
+                                            expectedResponse: TestHelperUtils.getCharacter()) { repository in
+      repository.loadCharacter(id: Constants.characterId).asObservable()
+    }
+  }
+
+  func testFaildCharacter() {
+    let error = MoyaError.underlying(
+      RickAndMortyAPIError.response(message: TestHelperUtils.Constants.errorMessage), nil)
+
+    repositoryTester.testFailedResponse(ofType: Character.self,
+                                        fromRepository: getRepository(jsonName: Constants.failResponse),
+                                        expectedError: error) { repository in
+      repository.loadCharacter(id: Constants.characterId).asObservable()
+    }
+  }
+
   private func getRepository(jsonName: String) -> CharacterRepositoryProtocol {
     let provider = RickAndMortyMoyaProvider<CharacterAPI> { character in
       switch character {
-      case .characterList:
+      case .characterList, .character(characterId: _):
         return JSONUtils.dataFromJson(named: jsonName)
       }
     }

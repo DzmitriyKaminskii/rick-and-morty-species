@@ -110,7 +110,7 @@ class CharacterLocationViewModelTest: XCTestCase {
 
     let repository = LocationRepository(provider: provider)
 
-    return CharacterLocationViewModel(locationId: location.id, locationRepository: repository)
+    return CharacterLocationViewModel(locationId: .just(location.id), locationRepository: repository)
   }
 
   private func generateLocationFromFile() -> Location {

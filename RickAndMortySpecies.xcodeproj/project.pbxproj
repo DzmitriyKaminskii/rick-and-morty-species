@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		00384CEBAABEEB73220F24D1 /* Pods_RickAndMortySpeciesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49385F26722618107DE3FF9F /* Pods_RickAndMortySpeciesTests.framework */; };
+		410106CB28572B2100417B03 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 410106CA28572B2100417B03 /* Moya */; };
+		410106CD28572B2100417B03 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 410106CC28572B2100417B03 /* RxMoya */; };
+		410106D028572B4900417B03 /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = 410106CF28572B4900417B03 /* RxSwiftExt */; };
+		410106D328572B8700417B03 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 410106D228572B8700417B03 /* AlamofireImage */; };
+		410106ED2857311700417B03 /* Action in Frameworks */ = {isa = PBXBuildFile; productRef = 410106EC2857311700417B03 /* Action */; };
+		410106F02857315C00417B03 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 410106EF2857315C00417B03 /* Swinject */; };
+		410106F32857318400417B03 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 410106F22857318400417B03 /* SnapKit */; };
+		4101070A2857349C00417B03 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 410107092857349C00417B03 /* RxCocoa */; };
+		4101070C2857349C00417B03 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 4101070B2857349C00417B03 /* RxRelay */; };
+		4101070E2857349C00417B03 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4101070D2857349C00417B03 /* RxSwift */; };
+		410107122857350000417B03 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 410107112857350000417B03 /* RxTest */; };
+		410107142857350800417B03 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 410107132857350800417B03 /* RxBlocking */; };
+		4101071628575D4C00417B03 /* CharacterDetailsCoordinatorInputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101071528575D4C00417B03 /* CharacterDetailsCoordinatorInputMock.swift */; };
+		410107182857696900417B03 /* CharacterAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410107172857696900417B03 /* CharacterAPITest.swift */; };
+		4101071A28576B2D00417B03 /* CharacterGenderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101071928576B2D00417B03 /* CharacterGenderTest.swift */; };
+		4101071C2857728B00417B03 /* CharacterDetailsViewModelCharacterIdTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101071B2857728B00417B03 /* CharacterDetailsViewModelCharacterIdTest.swift */; };
 		4121556828521506008A4019 /* DeeplinkCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121556728521506008A4019 /* DeeplinkCoordinatorProtocol.swift */; };
 		4121556A2852189C008A4019 /* DeeplinkHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412155692852189C008A4019 /* DeeplinkHandlerProtocol.swift */; };
 		4121556C28522534008A4019 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121556B28522534008A4019 /* DeepLinkHandler.swift */; };
@@ -24,7 +40,7 @@
 		41227CEB284634CE004F5895 /* location.json in Resources */ = {isa = PBXBuildFile; fileRef = 41AFC64C2846137200E7E1A3 /* location.json */; };
 		41227CEC284634D2004F5895 /* character.json in Resources */ = {isa = PBXBuildFile; fileRef = 41AFC64D2846137200E7E1A3 /* character.json */; };
 		41227CED284634D6004F5895 /* characterListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 41AFC64E2846137200E7E1A3 /* characterListResponse.json */; };
-		41227CF0284634E8004F5895 /* CharacterDetailsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFC6552846137200E7E1A3 /* CharacterDetailsViewModelTest.swift */; };
+		41227CF0284634E8004F5895 /* CharacterDetailsViewModelCharacterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFC6552846137200E7E1A3 /* CharacterDetailsViewModelCharacterTest.swift */; };
 		41227CF1284634EC004F5895 /* CharacterLocationViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFC6542846137200E7E1A3 /* CharacterLocationViewModelTest.swift */; };
 		414A63C628479D39006DC434 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414A63C828479D39006DC434 /* Main.storyboard */; };
 		414A63DD2847A065006DC434 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A63DA2847A065006DC434 /* Strings.swift */; };
@@ -119,6 +135,10 @@
 /* Begin PBXFileReference section */
 		1295B764E2A9EE18BB8DD08C /* Pods-RickAndMortySpeciesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortySpeciesTests.release.xcconfig"; path = "Target Support Files/Pods-RickAndMortySpeciesTests/Pods-RickAndMortySpeciesTests.release.xcconfig"; sourceTree = "<group>"; };
 		153A62783B2CAA1BE88520B3 /* Pods-RickAndMortySpecies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortySpecies.debug.xcconfig"; path = "Target Support Files/Pods-RickAndMortySpecies/Pods-RickAndMortySpecies.debug.xcconfig"; sourceTree = "<group>"; };
+		4101071528575D4C00417B03 /* CharacterDetailsCoordinatorInputMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsCoordinatorInputMock.swift; sourceTree = "<group>"; };
+		410107172857696900417B03 /* CharacterAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAPITest.swift; sourceTree = "<group>"; };
+		4101071928576B2D00417B03 /* CharacterGenderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterGenderTest.swift; sourceTree = "<group>"; };
+		4101071B2857728B00417B03 /* CharacterDetailsViewModelCharacterIdTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModelCharacterIdTest.swift; sourceTree = "<group>"; };
 		4121556728521506008A4019 /* DeeplinkCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		412155692852189C008A4019 /* DeeplinkHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkHandlerProtocol.swift; sourceTree = "<group>"; };
 		4121556B28522534008A4019 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
@@ -202,7 +222,7 @@
 		41AFC64D2846137200E7E1A3 /* character.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = character.json; sourceTree = "<group>"; };
 		41AFC64E2846137200E7E1A3 /* characterListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = characterListResponse.json; sourceTree = "<group>"; };
 		41AFC6542846137200E7E1A3 /* CharacterLocationViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterLocationViewModelTest.swift; sourceTree = "<group>"; };
-		41AFC6552846137200E7E1A3 /* CharacterDetailsViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModelTest.swift; sourceTree = "<group>"; };
+		41AFC6552846137200E7E1A3 /* CharacterDetailsViewModelCharacterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModelCharacterTest.swift; sourceTree = "<group>"; };
 		41AFC6572846137200E7E1A3 /* CharacterListTableViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListTableViewModelTest.swift; sourceTree = "<group>"; };
 		41AFC6592846137200E7E1A3 /* CharacterCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCellTest.swift; sourceTree = "<group>"; };
 		41AFC6B128461B3400E7E1A3 /* RickAndMortySpeciesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortySpeciesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +249,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				410107122857350000417B03 /* RxTest in Frameworks */,
+				410107142857350800417B03 /* RxBlocking in Frameworks */,
 				00384CEBAABEEB73220F24D1 /* Pods_RickAndMortySpeciesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,7 +259,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				410106ED2857311700417B03 /* Action in Frameworks */,
+				4101070A2857349C00417B03 /* RxCocoa in Frameworks */,
+				410106CB28572B2100417B03 /* Moya in Frameworks */,
+				410106F32857318400417B03 /* SnapKit in Frameworks */,
 				E2C94D1DC08BA786891DCE51 /* Pods_RickAndMortySpecies.framework in Frameworks */,
+				4101070E2857349C00417B03 /* RxSwift in Frameworks */,
+				410106D328572B8700417B03 /* AlamofireImage in Frameworks */,
+				410106CD28572B2100417B03 /* RxMoya in Frameworks */,
+				410106D028572B4900417B03 /* RxSwiftExt in Frameworks */,
+				410106F02857315C00417B03 /* Swinject in Frameworks */,
+				4101070C2857349C00417B03 /* RxRelay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +697,7 @@
 			isa = PBXGroup;
 			children = (
 				41AFC6412846137100E7E1A3 /* CharacterAPI */,
+				41AFC6442846137100E7E1A3 /* LocationAPI */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -673,7 +706,7 @@
 			isa = PBXGroup;
 			children = (
 				41AFC6422846137100E7E1A3 /* Response */,
-				41AFC6442846137100E7E1A3 /* LocationAPI */,
+				410107172857696900417B03 /* CharacterAPITest.swift */,
 			);
 			path = CharacterAPI;
 			sourceTree = "<group>";
@@ -682,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				41AFC6432846137100E7E1A3 /* CharacterStatusTest.swift */,
+				4101071928576B2D00417B03 /* CharacterGenderTest.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -718,17 +752,9 @@
 		41AFC64F2846137200E7E1A3 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				41AFC6502846137200E7E1A3 /* BaseComponents */,
 				41AFC6512846137200E7E1A3 /* Modules */,
 			);
 			path = PresentationLayer;
-			sourceTree = "<group>";
-		};
-		41AFC6502846137200E7E1A3 /* BaseComponents */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BaseComponents;
 			sourceTree = "<group>";
 		};
 		41AFC6512846137200E7E1A3 /* Modules */ = {
@@ -744,7 +770,9 @@
 			isa = PBXGroup;
 			children = (
 				41AFC6532846137200E7E1A3 /* LocationDetails */,
-				41AFC6552846137200E7E1A3 /* CharacterDetailsViewModelTest.swift */,
+				41AFC6552846137200E7E1A3 /* CharacterDetailsViewModelCharacterTest.swift */,
+				4101071B2857728B00417B03 /* CharacterDetailsViewModelCharacterIdTest.swift */,
+				4101071528575D4C00417B03 /* CharacterDetailsCoordinatorInputMock.swift */,
 			);
 			path = CharacterDetails;
 			sourceTree = "<group>";
@@ -760,8 +788,8 @@
 		41AFC6562846137200E7E1A3 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
-				41AFC6572846137200E7E1A3 /* CharacterListTableViewModelTest.swift */,
 				41AFC6582846137200E7E1A3 /* CharacterCell */,
+				41AFC6572846137200E7E1A3 /* CharacterListTableViewModelTest.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -778,9 +806,9 @@
 			isa = PBXGroup;
 			children = (
 				41AFC63A2846137100E7E1A3 /* BusinessLogicLayer */,
+				41AFC64F2846137200E7E1A3 /* PresentationLayer */,
 				41AFC6462846137100E7E1A3 /* Utils */,
 				41AFC64A2846137100E7E1A3 /* Sources */,
-				41AFC64F2846137200E7E1A3 /* PresentationLayer */,
 			);
 			path = RickAndMortySpeciesTests;
 			sourceTree = "<group>";
@@ -845,7 +873,6 @@
 				41AFC6AD28461B3400E7E1A3 /* Sources */,
 				41AFC6AE28461B3400E7E1A3 /* Frameworks */,
 				41AFC6AF28461B3400E7E1A3 /* Resources */,
-				F121F5298D0F08F188FE4C94 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -853,6 +880,10 @@
 				41AFC6B628461B3400E7E1A3 /* PBXTargetDependency */,
 			);
 			name = RickAndMortySpeciesTests;
+			packageProductDependencies = (
+				410107112857350000417B03 /* RxTest */,
+				410107132857350800417B03 /* RxBlocking */,
+			);
 			productName = RickAndMortySpeciesTests;
 			productReference = 41AFC6B128461B3400E7E1A3 /* RickAndMortySpeciesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -874,6 +905,18 @@
 			dependencies = (
 			);
 			name = RickAndMortySpecies;
+			packageProductDependencies = (
+				410106CA28572B2100417B03 /* Moya */,
+				410106CC28572B2100417B03 /* RxMoya */,
+				410106CF28572B4900417B03 /* RxSwiftExt */,
+				410106D228572B8700417B03 /* AlamofireImage */,
+				410106EC2857311700417B03 /* Action */,
+				410106EF2857315C00417B03 /* Swinject */,
+				410106F22857318400417B03 /* SnapKit */,
+				410107092857349C00417B03 /* RxCocoa */,
+				4101070B2857349C00417B03 /* RxRelay */,
+				4101070D2857349C00417B03 /* RxSwift */,
+			);
 			productName = "Urban Homework";
 			productReference = 6E71FB19276129D600A62236 /* RickAndMortySpecies.app */;
 			productType = "com.apple.product-type.application";
@@ -907,6 +950,15 @@
 				ru,
 			);
 			mainGroup = 6E71FB10276129D600A62236;
+			packageReferences = (
+				410106C928572B2100417B03 /* XCRemoteSwiftPackageReference "Moya" */,
+				410106CE28572B4900417B03 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
+				410106D128572B8700417B03 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				410106EB2857311700417B03 /* XCRemoteSwiftPackageReference "Action" */,
+				410106EE2857315C00417B03 /* XCRemoteSwiftPackageReference "Swinject" */,
+				410106F12857318400417B03 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				410107062857349C00417B03 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 6E71FB1A276129D600A62236 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1044,23 +1096,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RickAndMortySpecies/Pods-RickAndMortySpecies-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F121F5298D0F08F188FE4C94 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RickAndMortySpeciesTests/Pods-RickAndMortySpeciesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RickAndMortySpeciesTests/Pods-RickAndMortySpeciesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RickAndMortySpeciesTests/Pods-RickAndMortySpeciesTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1070,15 +1105,19 @@
 			files = (
 				41227CE028463481004F5895 /* LocationRepositoryTest.swift in Sources */,
 				41227CE9284634C1004F5895 /* JSONUtils.swift in Sources */,
+				4101071628575D4C00417B03 /* CharacterDetailsCoordinatorInputMock.swift in Sources */,
 				41227CE32846348E004F5895 /* TestHelperUtils.swift in Sources */,
+				4101071C2857728B00417B03 /* CharacterDetailsViewModelCharacterIdTest.swift in Sources */,
 				41227CE8284634A5004F5895 /* CharacterCellTest.swift in Sources */,
 				41227CE428463492004F5895 /* RepositoryTester.swift in Sources */,
+				4101071A28576B2D00417B03 /* CharacterGenderTest.swift in Sources */,
 				41227CE128463485004F5895 /* CharacterStatusTest.swift in Sources */,
 				41227CDF2846347D004F5895 /* CharacterRepositoryTest.swift in Sources */,
-				41227CF0284634E8004F5895 /* CharacterDetailsViewModelTest.swift in Sources */,
+				41227CF0284634E8004F5895 /* CharacterDetailsViewModelCharacterTest.swift in Sources */,
 				41227CE228463489004F5895 /* LocationAPITest.swift in Sources */,
 				41227CF1284634EC004F5895 /* CharacterLocationViewModelTest.swift in Sources */,
 				41227CE7284634A1004F5895 /* CharacterListTableViewModelTest.swift in Sources */,
+				410107182857696900417B03 /* CharacterAPITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1443,6 +1482,128 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		410106C928572B2100417B03 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+		410106CE28572B4900417B03 /* XCRemoteSwiftPackageReference "RxSwiftExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxSwiftExt";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		410106D128572B8700417B03 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+		410106EB2857311700417B03 /* XCRemoteSwiftPackageReference "Action" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/Action";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		410106EE2857315C00417B03 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.8.0;
+			};
+		};
+		410106F12857318400417B03 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+		410107062857349C00417B03 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		410106CA28572B2100417B03 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410106C928572B2100417B03 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		410106CC28572B2100417B03 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410106C928572B2100417B03 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		410106CF28572B4900417B03 /* RxSwiftExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410106CE28572B4900417B03 /* XCRemoteSwiftPackageReference "RxSwiftExt" */;
+			productName = RxSwiftExt;
+		};
+		410106D228572B8700417B03 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410106D128572B8700417B03 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
+		410106EC2857311700417B03 /* Action */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410106EB2857311700417B03 /* XCRemoteSwiftPackageReference "Action" */;
+			productName = Action;
+		};
+		410106EF2857315C00417B03 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410106EE2857315C00417B03 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		410106F22857318400417B03 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410106F12857318400417B03 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		410107092857349C00417B03 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410107062857349C00417B03 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		4101070B2857349C00417B03 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410107062857349C00417B03 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		4101070D2857349C00417B03 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410107062857349C00417B03 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		410107112857350000417B03 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410107062857349C00417B03 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		410107132857350800417B03 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410107062857349C00417B03 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6E71FB11276129D600A62236 /* Project object */;
 }

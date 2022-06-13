@@ -1,10 +1,10 @@
 // swiftlint:disable implicitly_unwrapped_optional
 // swiftlint:disable force_unwrapping
 //
-//  CharacterDetailsViewModelTest.swift
-//  RickAndMortySpecies Tests
+//  CharacterDetailsViewModelCharacterIdTest.swift
+//  RickAndMortySpeciesTests
 //
-//  Created by Dzmitry Kaminski on 5/22/22.
+//  Created by Dzmitry Kaminski on 6/13/22.
 //
 
 @testable import RickAndMortySpecies
@@ -15,7 +15,13 @@ import RxSwift
 import RxCocoa
 import RxTest
 
-class CharacterDetailsViewModelTest: XCTestCase {
+class CharacterDetailsViewModelCharacterIdTest: XCTestCase {
+
+  private enum Constants {
+
+    static let characterId = 7
+
+  }
 
   private var viewModel: CharacterDetailsViewModel!
   private var disposeBag: DisposeBag = DisposeBag()
@@ -26,22 +32,37 @@ class CharacterDetailsViewModelTest: XCTestCase {
   override func setUpWithError() throws {
     try super.setUpWithError()
 
-    character = JSONUtils.decodeJson(named: "character")!
     location = JSONUtils.decodeJson(named: "location")!
+    character = JSONUtils.decodeJson(named: "character")!
 
-    let provider = RickAndMortyMoyaProvider<LocationAPI> { location in
+    let locationProvider = RickAndMortyMoyaProvider<LocationAPI> { location in
       switch location {
       case .loadLocation(locationId: _):
         return JSONUtils.dataFromJson(named: "location")
       }
     }
 
-    let repository = LocationRepository(provider: provider)
+    let characterProvider = RickAndMortyMoyaProvider<CharacterAPI> { character in
+      switch character {
+      case .characterList(pagination: _):
+        return JSONUtils.dataFromJson(named: "characterListResponse")
+      case .character(characterId: _):
+        return JSONUtils.dataFromJson(named: "character")
+      }
+    }
+
+    let locationRepository = LocationRepository(provider: locationProvider)
+    let characterRepository = CharacterRepository(provider: characterProvider)
 
     viewModel = CharacterDetailsViewModel(
-      character: character,
-      locationRepository: repository)
+      characterId: Constants.characterId,
+      locationRepository: locationRepository,
+      characterRepository: characterRepository)
 
+    let mockCoordinatorInput = CharacterDetailsCoordinatorInputMock()
+    viewModel.updateCoordinator(mockCoordinatorInput)
+
+    viewModel.bind()
     viewModel.locationViewModel.bind()
 
     scheduler = TestScheduler(initialClock: 0)
@@ -50,47 +71,48 @@ class CharacterDetailsViewModelTest: XCTestCase {
   override func tearDownWithError() throws {
     try super.tearDownWithError()
 
+    viewModel.unbind()
     viewModel = nil
   }
 
   func testViewModelName() {
-    let nameObserver = scheduler.createObserver(String.self)
+    let nameObserver = scheduler.createObserver(Optional<String>.self)
 
     viewModel.output.name
       .drive(nameObserver)
       .disposed(by: disposeBag)
 
-    XCTAssertEqual(nameObserver.events, [.next(0, character.name), .completed(0)])
+    XCTAssertEqual(nameObserver.events, [.next(0, character.name)])
   }
 
   func testViewModelSpecies() {
-    let speciesObserver = scheduler.createObserver(String.self)
+    let speciesObserver = scheduler.createObserver(Optional<String>.self)
 
     viewModel.output.species
       .drive(speciesObserver)
       .disposed(by: disposeBag)
 
-    XCTAssertEqual(speciesObserver.events, [.next(0, character.species), .completed(0)])
+    XCTAssertEqual(speciesObserver.events, [.next(0, character.species)])
   }
 
   func testViewModelGender() {
-    let genderObserver = scheduler.createObserver(String.self)
+    let genderObserver = scheduler.createObserver(Optional<String>.self)
 
     viewModel.output.gender
       .drive(genderObserver)
       .disposed(by: disposeBag)
 
-    XCTAssertEqual(genderObserver.events, [.next(0, character.gender.value), .completed(0)])
+    XCTAssertEqual(genderObserver.events, [.next(0, character.gender.value)])
   }
 
   func testViewModelStatus() {
-    let statusObserver = scheduler.createObserver(CharacterStatus.self)
+    let statusObserver = scheduler.createObserver(Optional<CharacterStatus>.self)
 
     viewModel.output.status
       .drive(statusObserver)
       .disposed(by: disposeBag)
 
-    XCTAssertEqual(statusObserver.events, [.next(0, character.status), .completed(0)])
+    XCTAssertEqual(statusObserver.events, [.next(0, character.status)])
   }
 
   func testInnerViewModel() {

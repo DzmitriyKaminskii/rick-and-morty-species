@@ -5,6 +5,8 @@
 //  Created by Dzmitry Kaminski on 5/31/22.
 //
 
+import UIKit
+
 import Swinject
 
 extension Container {

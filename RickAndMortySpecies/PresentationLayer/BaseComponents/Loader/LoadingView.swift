@@ -5,8 +5,9 @@
 //  Created by Dzmitry Kaminski on 5/21/22.
 //
 
-import Action
 import UIKit
+
+import Action
 import SnapKit
 
 public class LoadingView: UIView {

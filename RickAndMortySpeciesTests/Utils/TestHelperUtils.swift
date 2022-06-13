@@ -6,6 +6,7 @@
 //
 
 @testable import RickAndMortySpecies
+
 import Foundation
 
 enum TestHelperUtils {
@@ -48,6 +49,33 @@ enum TestHelperUtils {
     )
 
     return CharacterListResponse(info: info, results: [character])
+  }
+
+  static func getCharacter() -> Character {
+    let original = CharacterLocation(
+      name: "Earth (Replacement Dimension)",
+      url: "https://rickandmortyapi.com/api/location/20"
+    )
+
+    let location = CharacterLocation(
+      name: "Testicle Monster Dimension",
+      url: "https://rickandmortyapi.com/api/location/21"
+    )
+
+    return Character(
+      id: 7,
+      name: "Abradolf Lincler",
+      status: CharacterStatus.unknown,
+      species: "Human",
+      type: "Genetic experiment",
+      gender: CharacterGender.male,
+      origin: original,
+      location: location,
+      image:  "https://rickandmortyapi.com/api/character/avatar/7.jpeg",
+      episode: ["https://rickandmortyapi.com/api/episode/10",
+                "https://rickandmortyapi.com/api/episode/11"],
+      url: "https://rickandmortyapi.com/api/character/7",
+      created: "2017-11-04T19:59:20.523Z")
   }
 
   static func getLocation() -> Location {

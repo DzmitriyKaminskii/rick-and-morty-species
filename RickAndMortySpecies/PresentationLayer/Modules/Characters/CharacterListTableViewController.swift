@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import RxSwift
 
 class CharacterListTableViewController: BindableTableViewController<CharacterListTableViewModel>, ErrorShowing {

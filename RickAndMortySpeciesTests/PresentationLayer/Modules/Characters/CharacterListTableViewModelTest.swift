@@ -76,6 +76,8 @@ class CharacterListTableViewModelTest: XCTestCase {
       switch character {
       case .characterList:
         return JSONUtils.dataFromJson(named: jsonName)
+      case .character(characterId: _):
+        return JSONUtils.dataFromJson(named: jsonName)
       }
     }
 

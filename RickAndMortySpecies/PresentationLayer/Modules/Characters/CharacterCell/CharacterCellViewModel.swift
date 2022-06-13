@@ -4,6 +4,8 @@
 //
 //  Created by Dzmitry Kaminski on 5/19/22.
 //
+import Foundation
+
 import AlamofireImage
 
 import RxSwift
