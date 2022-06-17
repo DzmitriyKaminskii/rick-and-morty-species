@@ -1,3 +1,4 @@
+// swiftlint:disable implicitly_unwrapped_optional
 //
 //  PageLoaderTest.swift
 //  RickAndMortySpeciesTests
@@ -21,8 +22,6 @@ class PageLoaderTest: XCTestCase {
   override func setUpWithError() throws {
     try super.setUpWithError()
 
-    
-
     scheduler = TestScheduler(initialClock: 0)
   }
 
@@ -31,6 +30,4 @@ class PageLoaderTest: XCTestCase {
 
   }
 
-
-  
 }
