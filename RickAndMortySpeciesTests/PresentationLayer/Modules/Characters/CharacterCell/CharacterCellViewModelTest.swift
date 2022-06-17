@@ -1,7 +1,7 @@
 // swiftlint:disable implicitly_unwrapped_optional
 // swiftlint:disable force_unwrapping
 //
-//  CharacterCellTest.swift
+//  CharacterCellViewModelTest.swift
 //  RickAndMortySpecies Tests
 //
 //  Created by Dzmitry Kaminski on 5/22/22.
@@ -15,7 +15,7 @@ import RxSwift
 import RxCocoa
 import RxTest
 
-class CharacterCellTest: XCTestCase {
+class CharacterCellViewModelTest: XCTestCase {
 
   private enum Constants {
     static let id = 10
